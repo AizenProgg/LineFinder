@@ -18,7 +18,7 @@ namespace LineFinder.Search
                 }
                 catch (Exception exception)
                 {
-                    LogWriter.Message(log, LogInformationType.Warning, exception.Message);
+                    LogWriter.Message(log, LogInformationType.Exception, exception.GetType().Name);
                 }
             }
 

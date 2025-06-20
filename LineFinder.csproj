@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Logging\PromptResultLogger.cs~RF12d9f35.TMP" />
+  </ItemGroup>
+
 </Project>

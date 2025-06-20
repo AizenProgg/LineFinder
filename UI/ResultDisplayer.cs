@@ -8,7 +8,7 @@ namespace LineFinder.UI
         {
             foreach (var resultItem in fileLineInfos)
             {
-                Console.WriteLine($"\n[PATH]: {resultItem.filePath}\n[LINE]: {resultItem.lineIndex}\n[TEXT]: {resultItem.line}\n");
+                Console.WriteLine($"\n[PATH]: {resultItem.filePath}\n[LINE]: {resultItem.lineIndex}\n[TEXT]: {resultItem.line}");
             }
         }
 

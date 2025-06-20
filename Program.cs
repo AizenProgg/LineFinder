@@ -3,12 +3,16 @@ using LineFinder.Types;
 using LineFinder.Utils;
 using LineFinder.UI;
 using LineFinder.Search;
+using System.Reflection;
 
 internal class Program
 {
     private static void Main()
     {
-        Log log = new Log();
+        Log log = new();
+
+        UserRequestData requestData = new();
+        FileLineInfo[] promptResult;
 
         LogDirectoryCreator.CreateLogDirectoryIfNotExist();
 
@@ -18,24 +22,23 @@ internal class Program
 
         while (true)
         {
-            UserRequestData requestData = new();
             requestData.Parse();
 
             if (requestData.IsValidInput)
             {
-                FileLineInfo[] result = MatchingFilesSearch.Find(requestData.LineText, DirectorySearch.GetFilesInDirectory(requestData.Path), log: log); // match find
+                promptResult = MatchingFilesSearch.Find(requestData.LineText, DirectorySearch.GetFilesInDirectory(requestData.Path), log: log); // match find
 
-                if(result.Length != 0) 
+                if (promptResult.Length != 0) 
                 {
-                    ResultDisplayer.MatchDisplay(result);
+                    ResultDisplayer.MatchDisplay(promptResult);
 
-                    PromptResultLogger.MatchLog(requestData, log, result); // match log
+                    PromptResultLogger.LogMatchInfo(requestData, log, promptResult);
                 }
                 else
                 {
                     ResultDisplayer.NoMatchDisplay();
 
-                    PromptResultLogger.NoMatchLog(requestData, log); // no match log
+                    PromptResultLogger.LogMatchInfo(requestData, log); // no match log
                 }
 
                 ConsolePauseDisplayer.WaitForKeyPress(); // press for continue...

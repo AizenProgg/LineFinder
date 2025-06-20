@@ -2,9 +2,9 @@
 {
 	internal class Log
 	{
-		private DateTime _sessionStarted;
-		private string _logPath;
-		private List<string> _sessionLogs = new();
+		private readonly DateTime _sessionStarted;
+		private readonly string _logPath;
+		private List<string> _sessionLogs = [];
 		
 		public string LogPath { get { return _logPath; } }
 		public DateTime SessionStarted { get { return _sessionStarted; } }

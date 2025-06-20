@@ -1,4 +1,6 @@
-﻿namespace LineFinder.Search
+﻿using LineFinder.Logging;
+
+namespace LineFinder.Search
 {
     internal static class DirectorySearch
     {

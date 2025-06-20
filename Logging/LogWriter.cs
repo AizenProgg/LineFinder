@@ -5,7 +5,7 @@
         static internal void Message (Log log, LogInformationType type, string text ="")
         {
             string message = $"[{type} {DateTime.Now}] {text} ";
-            File.AppendAllLines(log.LogPath, new string[] { message });
+            File.AppendAllLines(log.LogPath, [message]);
         }
     }
 }
