@@ -13,13 +13,9 @@
 		{
             _sessionStarted = DateTime.Now;
 
-            _logPath = Path.Combine
-			(
-				Directory.GetCurrentDirectory(),
-				"logs",
-				$"log{_sessionStarted:yyyy-MM-dd-HH-mm}.txt"
-			);
+            _logPath = Path.Combine(Directory.GetCurrentDirectory(), "logs", $"log{_sessionStarted:yyyy-MM-dd-HH-mm}.txt");
         }
+
 		public void InitializeLogFile()
 		{
             File.Create(_logPath).Close();
