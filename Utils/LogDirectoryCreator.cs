@@ -1,4 +1,7 @@
-﻿namespace LineFinder.Utils
+﻿using LineFinder.Logging;
+using LineFinder.Types;
+
+namespace LineFinder.Utils
 {
     internal static class LogDirectoryCreator
     {

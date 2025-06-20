@@ -2,8 +2,8 @@
 {
 	internal class Log
 	{
-		private readonly DateTime _sessionStarted;
-		private readonly string _logPath;
+		private DateTime _sessionStarted;
+		private string _logPath;
 		private List<string> _sessionLogs = new();
 		
 		public string LogPath { get { return _logPath; } }
@@ -11,17 +11,18 @@
 
 		public Log()
 		{
-			_sessionStarted = DateTime.Now;
+            _sessionStarted = DateTime.Now;
 
-			_logPath = Path.Combine(
-				Directory.GetCurrentDirectory() + 
-				"/logs" + 
-				$"/log{_sessionStarted.Year}-" +
-				$"{_sessionStarted.Day}-" +
-				$"{_sessionStarted.Hour}-" +
-				$"{_sessionStarted.Minute}.txt");
-
-			File.Create(_logPath).Close();
-		}
+            _logPath = Path.Combine
+			(
+				Directory.GetCurrentDirectory(),
+				"logs",
+				$"log{_sessionStarted:yyyy-MM-dd-HH-mm}.txt"
+			);
+        }
+		public void InitializeLogFile()
+		{
+            File.Create(_logPath).Close();
+        }
 	}
 }

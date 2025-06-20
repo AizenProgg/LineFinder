@@ -2,8 +2,9 @@
 {
     public enum LogInformationType
 	{
-		warning,
-		info,
-		start
-	}	
+		Warning,
+		Info,
+		Start,
+		DirectoryCreating
+	}
 }

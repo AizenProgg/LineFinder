@@ -8,10 +8,13 @@ internal class Program
 {
     private static void Main()
     {
+        Log log = new Log();
+
         LogDirectoryCreator.CreateLogDirectoryIfNotExist();
 
-        Log log = new();
-        LogWriter.Message(log, LogInformationType.start); // start log
+        log.InitializeLogFile();
+
+        LogWriter.Message(log, LogInformationType.Start); // Start log
 
         while (true)
         {
